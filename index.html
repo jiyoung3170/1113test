@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- =====================================================================
+       [수정가이드] 문서 기본 정보
+       - <title>, description : 브랜드명·소개 문구가 바뀌면 여기를 수정합니다.
+       - 브랜드명 "OAT & CLAY"는 기획안에 이름이 없어 임시로 만든 가상의 이름입니다.
+         실제 브랜드명으로 바꿀 때는 이 파일에서 "OAT &amp; CLAY"를 모두 찾아 바꾸세요.
+       ===================================================================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="OAT & CLAY — 손으로 만드는 천연 핸드메이드 솝. Natural Ritual, 일상에 스며드는 자연의 작은 의식.">
+  <title>OAT &amp; CLAY | Handmade Soap Atelier</title>
+
+  <!-- [수정가이드] 웹폰트 : 기획안 서체 가이드(Playfair Display / Noto Sans KR / Gowun Batang) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+  <!-- [수정가이드] 스타일시트 : 디자인 수정은 css/style.css 에서 합니다. -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- 애니메이션 준비 스크립트 : 첫 화면이 깜빡이지 않도록 가장 먼저 실행됩니다. (js/preload.js) -->
+  <script src="js/preload.js"></script>
+</head>
+
+<body>
+  <!-- 키보드 사용자를 위한 본문 바로가기 -->
+  <a class="skip-link" href="#main">본문 바로가기</a>
+
+  <!-- 스크롤 진행률 표시 막대 (js/main.js 의 initProgressBar 가 너비를 갱신) -->
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <!-- =====================================================================
+       [HEADER] 상단 메뉴바
+       - 메뉴 항목 추가/삭제 : <ul class="gnb__list"> 안의 <li>를 복사·삭제합니다.
+         href="#섹션id" 는 아래 <section id="..."> 와 반드시 같아야 합니다.
+       - 모바일(1024px 이하)에서는 햄버거 버튼으로 전체화면 메뉴가 열립니다.
+       ===================================================================== -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="#home" class="logo" aria-label="OAT &amp; CLAY 홈으로">
+        OAT <em>&amp;</em> CLAY
+      </a>
+
+      <nav class="gnb" id="gnb" aria-label="주 메뉴">
+        <ul class="gnb__list">
+          <li><a href="#home" class="gnb__link is-active">HOME</a></li>
+          <li><a href="#story" class="gnb__link">BRAND STORY</a></li>
+          <li><a href="#values" class="gnb__link">OUR VALUES</a></li>
+          <li><a href="#product" class="gnb__link">PRODUCT</a></li>
+          <li><a href="#process" class="gnb__link">HANDMADE PROCESS</a></li>
+          <li><a href="#shop" class="gnb__link">SHOP NOW</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__util">
+        <!-- 장바구니 버튼 : 숫자는 JS(cart 모듈)가 자동으로 채웁니다. -->
+        <button type="button" class="cart-btn" id="cartOpen" aria-label="장바구니 열기">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          <span class="cart-btn__count" id="cartCount">0</span>
+        </button>
+        <!-- 모바일 메뉴 열기/닫기 버튼 -->
+        <button type="button" class="menu-btn" id="menuBtn" aria-controls="gnb" aria-expanded="false" aria-label="메뉴 열기">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- =====================================================================
+         [SECTION 01] HOME — 자연의 첫인상
+         - 큰 영문 타이틀 : .hero__title 안의 <span class="line"> 한 줄씩 등장합니다.
+           줄을 늘리거나 줄이려면 <span class="line"><span>문구</span></span> 단위로 편집하세요.
+         - 원형 비누 이미지 : .hero__circle img 의 src 를 바꾸면 교체됩니다.
+           스크롤하면 이 원이 화면 가득 커지며 다음 섹션으로 이어집니다(Circle Mask Expansion).
+         ===================================================================== -->
+    <section class="section hero" id="home" data-bg="#F2E6D5">
+      <!-- 원형 확장 마스크 레이어 : 스크롤 시 원이 커지며 이 사진(=BRAND STORY 배경)이 화면을 채웁니다.
+           BRAND STORY 배경 사진을 바꿀 때 이 이미지도 같은 사진으로 바꿔야 자연스럽게 이어집니다. -->
+      <div class="hero__mask" id="heroMask" aria-hidden="true">
+        <img src="images/자연을 담은 수제 비누 의식.png" alt="" loading="lazy">
+      </div>
+      <div class="hero__inner">
+        <p class="hero__eyebrow">Handmade Soap Atelier · Since 2026</p>
+
+        <h1 class="hero__title" aria-label="Natural Ritual for Every Day">
+          <span class="line"><span>Natural</span></span>
+          <span class="line line--indent"><span><i>Ritual</i></span></span>
+          <span class="line line--small"><span>for every day</span></span>
+        </h1>
+
+        <!-- [이미지 교체] 히어로 원형 비누 이미지 -->
+        <div class="hero__circle" id="heroCircle">
+          <img src="images/따뜻한 수제 오트밀 비누 정물화.png"
+               alt="오트밀을 넣어 만든 천연 비누" width="1200" height="800" fetchpriority="high">
+        </div>
+
+        <p class="hero__copy">일상에 스며드는 자연의 작은 의식,<br>손끝으로 빚은 한 조각의 비누</p>
+
+        <a href="#story" class="scroll-cue" aria-label="브랜드 스토리로 이동">
+          <span>Scroll</span><i aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <!-- 장식 그래픽(유기적 곡선) : 필요 없으면 이 <svg>를 통째로 삭제해도 됩니다. -->
+      <svg class="deco deco--blob1" viewBox="0 0 200 200" aria-hidden="true"><path d="M44.7,-58.6C57.3,-49.7,66.5,-35.6,70.6,-20C74.6,-4.4,73.6,12.7,66.3,26.3C59,39.9,45.5,50,30.7,57.6C15.9,65.2,-0.2,70.3,-17.4,68.2C-34.6,66.1,-52.9,56.8,-63.3,42C-73.8,27.2,-76.4,6.9,-71.6,-10.9C-66.8,-28.6,-54.6,-43.8,-40.2,-52.6C-25.8,-61.4,-9.3,-63.9,4.6,-69.6C18.5,-75.3,32.1,-67.5,44.7,-58.6Z" transform="translate(100 100)"/></svg>
+    </section>
+
+    <!-- =====================================================================
+         [SECTION 02] BRAND STORY — 손끝에서 시작된 이야기
+         - .story__bg img : 풀스크린 배경 사진 (히어로의 원이 커지며 이 사진으로 연결)
+         - .story__lines 의 <p class="story-line"> : 한 줄씩 등장하는 소개 문구
+         - .story__media 의 두 사진 : 좌우에서 다른 속도로 움직이는 제작 장면(data-speed 로 속도 조절)
+         ===================================================================== -->
+    <section class="section story" id="story" data-bg="#FFF9F0">
+      <div class="story__hero">
+        <div class="story__bg">
+          <!-- [이미지 교체] 브랜드 스토리 풀스크린 배경 -->
+          <img src="images/따뜻한 수제 비누 재료 정물화.png"
+               alt="허브가 담긴 유리병 세 개를 들고 있는 손" width="2000" height="1333" loading="lazy">
+        </div>
+        <div class="story__hero-text">
+          <p class="eyebrow eyebrow--light">02 — Brand Story</p>
+          <h2 class="story__headline">Made with <i>Care</i></h2>
+        </div>
+      </div>
+
+      <div class="container story__body">
+        <div class="story__text">
+          <p class="eyebrow">손끝에서 시작된 이야기</p>
+          <div class="story__lines">
+            <p class="story-line serif-ko">작은 작업실의 나무 테이블 위에서</p>
+            <p class="story-line serif-ko">오일을 데우고, 허브를 말리고,</p>
+            <p class="story-line serif-ko">비누가 굳어가는 시간을 기다립니다.</p>
+            <p class="story-line serif-ko accent">서두르지 않는 손이 가장 좋은 비누를 만든다고 믿습니다.</p>
+          </div>
+          <p class="story__desc">OAT &amp; CLAY는 자연에서 온 원료만을 골라 한 번에 적은 양을 손으로 만듭니다.
+            합성 향료와 색소 대신 식물의 향과 흙의 색을 담아, 씻는 순간이 하루를 돌보는 작은 의식이 되도록 합니다.</p>
+        </div>
+
+        <div class="story__media">
+          <!-- [이미지 교체] 제작 장면 사진 1 (data-speed: 숫자가 클수록 빠르게 이동) -->
+          <figure class="story__img story__img--a" data-speed="-60">
+            <img src="https://burst.shopifycdn.com/photos/handmade-natural-soap-with-ingredients.jpg?width=1200&format=pjpg&exif=0&iptc=0"
+                 alt="오이와 금잔화 원료와 함께 놓인 수제 비누" width="1200" height="800" loading="lazy">
+          </figure>
+          <!-- [이미지 교체] 제작 장면 사진 2 -->
+          <figure class="story__img story__img--b" data-speed="80">
+            <img src="https://images.unsplash.com/photo-1454873019514-eae2f086587a?auto=format&fit=crop&w=1200&q=80"
+                 alt="라벨을 붙여 포장한 수제 비누" width="1200" height="800" loading="lazy">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         [SECTION 03] OUR VALUES — 자연을 담은 가치
+         - 데스크톱 : .values__stage 가 화면에 고정(Pin)되고, 스크롤에 따라
+           NATURAL → HANDMADE → SUSTAINABLE 키워드와 이미지가 차례로 바뀝니다.
+         - 키워드/설명 수정 : .values__word 와 .values__info 의 순서·개수를 서로 맞춰 주세요.
+         - 아래 .values__grid 는 3단 그리드 카드(모바일에서는 1단)입니다.
+         ===================================================================== -->
+    <section class="section values" id="values" data-bg="#6C493A">
+      <div class="values__stage" id="valuesStage">
+        <!-- 키워드별 이미지 레이어 (data-index 0,1,2 가 키워드 순서와 대응) -->
+        <div class="values__layers" aria-hidden="true">
+          <!-- [이미지 교체] NATURAL 이미지 -->
+          <figure class="values__layer" data-index="0">
+            <img src="https://images.unsplash.com/photo-1634304387535-e9b7ed3180d4?auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy">
+          </figure>
+          <!-- [이미지 교체] HANDMADE 이미지 -->
+          <figure class="values__layer" data-index="1">
+            <img src="https://burst.shopifycdn.com/photos/handmade-soap-wrapped.jpg?width=1200&format=pjpg&exif=0&iptc=0" alt="" loading="lazy">
+          </figure>
+          <!-- [이미지 교체] SUSTAINABLE 이미지 -->
+          <figure class="values__layer" data-index="2">
+            <img src="https://images.unsplash.com/photo-1642503109492-eb6849ebde56?auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy">
+          </figure>
+          <!-- 겹쳐 등장하는 보조 원료 이미지 (Image Overlap) -->
+          <figure class="values__float values__float--1" data-speed="-120">
+            <img src="https://images.unsplash.com/photo-1643790381733-3e7f1265f0b5?auto=format&fit=crop&w=600&q=80" alt="" loading="lazy">
+          </figure>
+          <figure class="values__float values__float--2" data-speed="140">
+            <img src="https://images.unsplash.com/photo-1694035449621-8fe51b28f59f?auto=format&fit=crop&w=600&q=80" alt="" loading="lazy">
+          </figure>
+        </div>
+
+        <div class="values__center">
+          <p class="eyebrow eyebrow--rose">03 — Our Values · 자연을 담은 가치</p>
+          <div class="values__words" aria-live="polite">
+            <h2 class="values__word is-active">NATURAL</h2>
+            <h2 class="values__word">HANDMADE</h2>
+            <h2 class="values__word">SUSTAINABLE</h2>
+          </div>
+          <div class="values__infos">
+            <p class="values__info is-active serif-ko">땅과 햇빛이 키운 식물성 오일과 허브만 담았습니다.</p>
+            <p class="values__info serif-ko">모든 비누는 작은 작업실에서 사람의 손으로 완성됩니다.</p>
+            <p class="values__info serif-ko">플라스틱 대신 종이와 끈으로, 지구에 가볍게 포장합니다.</p>
+          </div>
+          <!-- 진행 표시 점 -->
+          <ol class="values__dots" aria-hidden="true"><li class="is-active"></li><li></li><li></li></ol>
+        </div>
+      </div>
+
+      <!-- 3단 그리드 카드 : 카드 추가 시 <article class="value-card"> 를 복사하세요. -->
+      <div class="container values__grid">
+        <article class="value-card reveal-up">
+          <span class="value-card__num">01</span>
+          <h3>Plant-based Oils</h3>
+          <p>올리브·코코넛·시어버터 등 100% 식물성 오일을 저온에서 배합해 영양을 지킵니다.</p>
+        </article>
+        <article class="value-card reveal-up">
+          <span class="value-card__num">02</span>
+          <h3>Small Batch</h3>
+          <p>한 번에 40개만 만드는 소량 생산으로, 한 조각 한 조각의 질감을 직접 확인합니다.</p>
+        </article>
+        <article class="value-card reveal-up">
+          <span class="value-card__num">03</span>
+          <h3>Zero Plastic</h3>
+          <p>재생지 포장과 면 끈, 리필 가능한 비누 받침으로 쓰레기 없는 욕실을 제안합니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         [SECTION 04] PRODUCT — 자연이 만든 다채로움
+         - 데스크톱 : 화면이 고정되고 세로 스크롤에 따라 제품이 가로로 이동합니다.
+         - 모바일 : 손가락으로 넘기는 터치 슬라이드 + 이전/다음 버튼으로 바뀝니다.
+         - 제품 추가/수정 : <li class="product-card"> 하나가 제품 1개입니다.
+             data-name   : 제품명 (상세 팝업·장바구니에 사용)
+             data-price  : 가격(숫자만)
+             data-bg     : 해당 제품이 가운데 올 때 섹션 배경색
+             data-desc   : 상세 팝업 설명
+             data-notes  : 주요 원료(쉼표로 구분)
+           이미지 교체는 카드 안 <img src> 를 바꾸면 됩니다.
+         ===================================================================== -->
+    <section class="section product" id="product" data-bg="#F2E6D5">
+      <div class="product__pin" id="productPin">
+        <div class="container product__head">
+          <div>
+            <p class="eyebrow">04 — Product</p>
+            <h2 class="section-title">Discover <i>Your Soap</i></h2>
+            <p class="section-sub serif-ko">자연이 만든 다채로움, 피부와 기분에 맞는 한 조각을 골라보세요.</p>
+          </div>
+          <div class="product__nav">
+            <button type="button" class="round-btn" id="prodPrev" aria-label="이전 제품"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+            <button type="button" class="round-btn" id="prodNext" aria-label="다음 제품"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+          </div>
+        </div>
+
+        <div class="product__viewport" id="productViewport">
+          <ul class="product__track" id="productTrack">
+            <li class="product-card" data-name="Oat Milk Bar" data-price="14000" data-bg="#F2E6D5"
+                data-desc="곱게 간 오트밀과 산양유를 넣어 건조하고 예민한 피부를 부드럽게 감싸 줍니다. 아기와 함께 쓰기 좋은 무향 비누입니다."
+                data-notes="오트밀, 산양유, 올리브 오일, 시어버터">
+              <div class="product-card__img">
+                <!-- [이미지 교체] 제품 1 -->
+                <img src="https://burst.shopifycdn.com/photos/natural-soap-made-with-oatmeal.jpg?width=900&format=pjpg&exif=0&iptc=0" alt="오트밀 비누" loading="lazy">
+                <button type="button" class="product-card__more">자세히 보기 <span aria-hidden="true">+</span></button>
+              </div>
+              <div class="product-card__info">
+                <span class="product-card__tag">Sensitive</span>
+                <h3>Oat Milk Bar</h3>
+                <p>오트밀크 · 무향 · 100g</p>
+                <strong>₩14,000</strong>
+              </div>
+            </li>
+
+            <li class="product-card" data-name="Lavender Field" data-price="15000" data-bg="#E8D9E0"
+                data-desc="프로방스 라벤더 오일과 말린 꽃잎을 넣어 하루의 긴장을 풀어 주는 저녁용 비누입니다."
+                data-notes="라벤더 오일, 라벤더 꽃잎, 코코넛 오일, 피마자 오일">
+              <div class="product-card__img">
+                <!-- [이미지 교체] 제품 2 -->
+                <img src="https://burst.shopifycdn.com/photos/violet-soap-with-leaves.jpg?width=900&format=pjpg&exif=0&iptc=0" alt="라벤더 비누" loading="lazy">
+                <button type="button" class="product-card__more">자세히 보기 <span aria-hidden="true">+</span></button>
+              </div>
+              <div class="product-card__info">
+                <span class="product-card__tag">Relax</span>
+                <h3>Lavender Field</h3>
+                <p>라벤더 · 플로럴 · 100g</p>
+                <strong>₩15,000</strong>
+              </div>
+            </li>
+
+            <li class="product-card" data-name="Charcoal Detox" data-price="16000" data-bg="#D9D2C9"
+                data-desc="대나무 숯 파우더가 모공 속 노폐물을 흡착해 지성·복합성 피부를 산뜻하게 정돈합니다."
+                data-notes="대나무 숯, 티트리 오일, 코코넛 오일, 카올린 클레이">
+              <div class="product-card__img">
+                <!-- [이미지 교체] 제품 3 -->
+                <img src="https://burst.shopifycdn.com/photos/handmade-charcoal-soap.jpg?width=900&format=pjpg&exif=0&iptc=0" alt="숯 비누" loading="lazy">
+                <button type="button" class="product-card__more">자세히 보기 <span aria-hidden="true">+</span></button>
+              </div>
+              <div class="product-card__info">
+                <span class="product-card__tag">Deep Clean</span>
+                <h3>Charcoal Detox</h3>
+                <p>숯 · 티트리 · 100g</p>
+                <strong>₩16,000</strong>
+              </div>
+            </li>
+
+            <li class="product-card" data-name="Cucumber Calendula" data-price="15000" data-bg="#DCE3D2"
+                data-desc="오이 추출물과 금잔화 꽃잎이 햇볕에 지친 피부를 시원하게 진정시켜 주는 여름 비누입니다."
+                data-notes="오이 추출물, 금잔화, 알로에, 올리브 오일">
+              <div class="product-card__img">
+                <!-- [이미지 교체] 제품 4 -->
+                <img src="https://burst.shopifycdn.com/photos/natural-soap-with-cucumber.jpg?width=900&format=pjpg&exif=0&iptc=0" alt="오이 금잔화 비누" loading="lazy">
+                <button type="button" class="product-card__more">자세히 보기 <span aria-hidden="true">+</span></button>
+              </div>
+              <div class="product-card__info">
+                <span class="product-card__tag">Soothing</span>
+                <h3>Cucumber Calendula</h3>
+                <p>오이 · 금잔화 · 100g</p>
+                <strong>₩15,000</strong>
+              </div>
+            </li>
+
+            <li class="product-card" data-name="Rose Clay Layer" data-price="17000" data-bg="#EBD3CB"
+                data-desc="핑크 클레이와 로즈힙 오일을 층층이 부어 만든 레이어 비누로, 은은한 장미 향이 오래 남습니다."
+                data-notes="핑크 클레이, 로즈힙 오일, 제라늄 오일, 시어버터">
+              <div class="product-card__img">
+                <!-- [이미지 교체] 제품 5 -->
+                <img src="https://burst.shopifycdn.com/photos/soap-bar-with-layers.jpg?width=900&format=pjpg&exif=0&iptc=0" alt="로즈 클레이 레이어 비누" loading="lazy">
+                <button type="button" class="product-card__more">자세히 보기 <span aria-hidden="true">+</span></button>
+              </div>
+              <div class="product-card__info">
+                <span class="product-card__tag">Glow</span>
+                <h3>Rose Clay Layer</h3>
+                <p>로즈 · 클레이 · 110g</p>
+                <strong>₩17,000</strong>
+              </div>
+            </li>
+
+            <li class="product-card" data-name="Neem &amp; Neroli" data-price="16000" data-bg="#E3DCC8"
+                data-desc="님 잎과 네롤리 꽃 오일로 트러블 피부를 맑게 가꾸는 데일리 페이셜 비누입니다."
+                data-notes="님 잎, 네롤리 오일, 녹차, 코코넛 오일">
+              <div class="product-card__img">
+                <!-- [이미지 교체] 제품 6 -->
+                <img src="https://images.unsplash.com/photo-1582614646688-574372926cd9?auto=format&fit=crop&w=900&q=80" alt="님 네롤리 비누" loading="lazy">
+                <button type="button" class="product-card__more">자세히 보기 <span aria-hidden="true">+</span></button>
+              </div>
+              <div class="product-card__info">
+                <span class="product-card__tag">Clear</span>
+                <h3>Neem &amp; Neroli</h3>
+                <p>님 · 네롤리 · 100g</p>
+                <strong>₩16,000</strong>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 모바일 슬라이드 위치 표시(JS가 점을 자동 생성) -->
+        <div class="product__dots" id="productDots" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         [SECTION 05] HANDMADE PROCESS — 정성이 쌓이는 시간
+         - 데스크톱 : 왼쪽 이미지가 고정(Sticky)되고, 오른쪽 단계가 화면 중앙에 오면
+           이미지가 아래에서 위로 열리며(Mask Reveal) 해당 단계 사진으로 바뀝니다.
+         - 단계 수정 : .process__step 와 .process__frame 의 개수·순서를 맞춰 주세요(data-step 번호 동일).
+         - 모바일 : 각 단계 안의 .process__step-img 사진이 대신 보입니다.
+         ===================================================================== -->
+    <section class="section process" id="process" data-bg="#FFF9F0">
+      <div class="container">
+        <header class="process__head">
+          <p class="eyebrow">05 — Handmade Process</p>
+          <h2 class="section-title">Slowly <i>Made</i></h2>
+          <p class="section-sub serif-ko">원료 준비부터 포장까지, 정성이 쌓이는 시간 6주.</p>
+        </header>
+
+        <div class="process__wrap">
+          <!-- 고정 이미지 영역 -->
+          <div class="process__visual" aria-hidden="true">
+            <div class="process__frames">
+              <!-- [이미지 교체] 단계별 이미지 1~5 (data-step 이 아래 단계 번호와 대응) -->
+              <figure class="process__frame is-active" data-step="1"><img src="https://images.unsplash.com/photo-1694035449621-8fe51b28f59f?auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy"></figure>
+              <figure class="process__frame" data-step="2"><img src="https://images.unsplash.com/photo-1694888685058-809b097e5ac0?auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy"></figure>
+              <figure class="process__frame" data-step="3"><img src="https://burst.shopifycdn.com/photos/bars-of-soap.jpg?width=1200&format=pjpg&exif=0&iptc=0" alt="" loading="lazy"></figure>
+              <figure class="process__frame" data-step="4"><img src="https://burst.shopifycdn.com/photos/handmade-soap-stacked.jpg?width=1200&format=pjpg&exif=0&iptc=0" alt="" loading="lazy"></figure>
+              <figure class="process__frame" data-step="5"><img src="https://burst.shopifycdn.com/photos/wrapped-bars-of-soap-with-twine.jpg?width=1200&format=pjpg&exif=0&iptc=0" alt="" loading="lazy"></figure>
+            </div>
+            <span class="process__counter"><b id="processNow">01</b> / 05</span>
+          </div>
+
+          <!-- 단계 설명 -->
+          <ol class="process__steps">
+            <li class="process__step" data-step="1">
+              <figure class="process__step-img"><img src="https://images.unsplash.com/photo-1694035449621-8fe51b28f59f?auto=format&fit=crop&w=900&q=75" alt="화분에서 기른 허브" loading="lazy"></figure>
+              <span class="process__num">01</span>
+              <h3>원료 준비 <small>Gather</small></h3>
+              <p>직접 기르거나 계약 농가에서 받은 허브를 그늘에서 말리고, 오일은 산패 여부를 하나씩 확인합니다.</p>
+            </li>
+            <li class="process__step" data-step="2">
+              <figure class="process__step-img"><img src="https://images.unsplash.com/photo-1694888685058-809b097e5ac0?auto=format&fit=crop&w=900&q=75" alt="액상 비누와 비누 블록" loading="lazy"></figure>
+              <span class="process__num">02</span>
+              <h3>배합 <small>Blend</small></h3>
+              <p>40℃ 이하의 낮은 온도에서 오일과 원료를 천천히 저어 섞어, 식물의 영양이 그대로 남도록 합니다.</p>
+            </li>
+            <li class="process__step" data-step="3">
+              <figure class="process__step-img"><img src="https://burst.shopifycdn.com/photos/bars-of-soap.jpg?width=900&format=pjpg&exif=0&iptc=0" alt="틀에서 꺼낸 비누" loading="lazy"></figure>
+              <span class="process__num">03</span>
+              <h3>몰딩 <small>Mold</small></h3>
+              <p>나무 틀에 부어 하루 동안 보온한 뒤, 손으로 한 조각씩 잘라 모서리를 다듬습니다.</p>
+            </li>
+            <li class="process__step" data-step="4">
+              <figure class="process__step-img"><img src="https://burst.shopifycdn.com/photos/handmade-soap-stacked.jpg?width=900&format=pjpg&exif=0&iptc=0" alt="숙성 중인 비누" loading="lazy"></figure>
+              <span class="process__num">04</span>
+              <h3>숙성 <small>Cure</small></h3>
+              <p>바람이 잘 통하는 선반에서 4~6주 동안 숙성해 더 단단하고 순한 비누로 완성합니다.</p>
+            </li>
+            <li class="process__step" data-step="5">
+              <figure class="process__step-img"><img src="https://burst.shopifycdn.com/photos/wrapped-bars-of-soap-with-twine.jpg?width=900&format=pjpg&exif=0&iptc=0" alt="종이와 끈으로 포장한 비누" loading="lazy"></figure>
+              <span class="process__num">05</span>
+              <h3>포장 <small>Wrap</small></h3>
+              <p>재생지로 감싸고 면 끈으로 묶어, 손글씨 라벨과 함께 당신에게 보냅니다.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         [SECTION 06] SHOP NOW — 나를 위한 작은 선물
+         - .shop__bg img : 풀스크린 라이프스타일 배경 이미지
+         - .shop__cta : 구매 버튼. href 를 실제 쇼핑몰 주소로 바꾸면 외부 쇼핑몰로 연결됩니다.
+           (현재는 #product 로 이동하도록 되어 있습니다.)
+         - 뉴스레터 폼 : js/main.js 의 initNewsletter 에서 입력값을 검사합니다.
+           실제 메일 서비스와 연결하려면 그 함수의 "실제 전송" 주석 위치를 수정하세요.
+         ===================================================================== -->
+    <section class="section shop" id="shop" data-bg="#6C493A">
+      <div class="shop__bg">
+        <!-- [이미지 교체] SHOP NOW 배경 -->
+        <img src="https://images.unsplash.com/photo-1642503108423-616141f68807?auto=format&fit=crop&w=2000&q=80"
+             alt="침대 위에 놓인 천연 욕실 제품" width="2000" height="1333" loading="lazy">
+        <!--
+          [멀티미디어 교체 예시] 배경을 영상으로 바꾸고 싶다면 위 <img> 를 지우고 아래 주석을 해제하세요.
+          영상 파일은 images 폴더 등에 넣고 src 경로를 맞춰 주면 됩니다.
+          <video autoplay muted loop playsinline poster="images/placeholder.svg">
+            <source src="images/shop-bg.mp4" type="video/mp4">
+          </video>
+        -->
+      </div>
+
+      <div class="shop__content">
+        <p class="eyebrow eyebrow--light shop__fade">06 — Shop Now</p>
+        <h2 class="shop__title">
+          <span class="line"><span>A Little</span></span>
+          <span class="line"><span><i>Ritual</i> for You</span></span>
+        </h2>
+        <p class="shop__copy serif-ko shop__fade">오늘 하루 수고한 나에게, 자연을 닮은 작은 선물을.</p>
+
+        <a href="#product" class="shop__cta">
+          <span>지금 만나보기</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+        </a>
+
+        <form class="newsletter shop__fade" id="newsletter" novalidate>
+          <label for="nlEmail" class="newsletter__label">새 비누 소식과 10% 웰컴 쿠폰 받기</label>
+          <div class="newsletter__row">
+            <input type="email" id="nlEmail" name="email" placeholder="이메일 주소" autocomplete="email" required>
+            <button type="submit">구독</button>
+          </div>
+          <p class="newsletter__msg" id="nlMsg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- =====================================================================
+       [FOOTER] 하단 정보 — 회사 정보·SNS 주소를 실제 정보로 바꾸세요.
+       ===================================================================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <a href="#home" class="logo logo--footer">OAT <em>&amp;</em> CLAY</a>
+        <p class="footer__slogan serif-ko">Natural Ritual — 일상에 스며드는 자연의 작은 의식</p>
+      </div>
+      <address class="footer__info">
+        상호 : 오트앤클레이(예시) · 대표 : 홍길동<br>
+        주소 : 광주광역시 ○○구 ○○로 00 (예시)<br>
+        문의 : hello@oatandclay.example · 062-000-0000
+      </address>
+      <ul class="footer__sns">
+        <li><a href="#" aria-label="인스타그램(주소 입력 필요)">Instagram</a></li>
+        <li><a href="#" aria-label="블로그(주소 입력 필요)">Blog</a></li>
+        <li><a href="#" aria-label="스마트스토어(주소 입력 필요)">Store</a></li>
+      </ul>
+    </div>
+    <p class="footer__copy">© 2026 OAT &amp; CLAY. Photos: Unsplash · Shopify Burst (교체 가능한 예시 이미지)</p>
+  </footer>
+
+  <!-- 맨 위로 버튼 -->
+  <button type="button" class="to-top" id="toTop" aria-label="맨 위로">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+  </button>
+
+  <!-- =====================================================================
+       [MODAL] 제품 상세 팝업 — 내용은 제품 카드의 data-* 값으로 JS가 자동 채웁니다.
+       ===================================================================== -->
+  <div class="modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal__dim" data-close></div>
+    <div class="modal__panel">
+      <button type="button" class="modal__close" data-close aria-label="닫기">&times;</button>
+      <figure class="modal__img"><img id="modalImg" src="images/placeholder.svg" alt=""></figure>
+      <div class="modal__body">
+        <span class="product-card__tag" id="modalTag"></span>
+        <h3 id="modalTitle">제품명</h3>
+        <p class="modal__desc" id="modalDesc"></p>
+        <p class="modal__notes"><b>주요 원료</b> <span id="modalNotes"></span></p>
+        <div class="modal__buy">
+          <div class="qty" aria-label="수량 선택">
+            <button type="button" id="qtyMinus" aria-label="수량 줄이기">−</button>
+            <input type="number" id="qtyInput" value="1" min="1" max="20" aria-label="수량">
+            <button type="button" id="qtyPlus" aria-label="수량 늘리기">+</button>
+          </div>
+          <strong class="modal__price" id="modalPrice">₩0</strong>
+        </div>
+        <button type="button" class="btn-primary" id="addToCart">장바구니 담기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       [CART] 장바구니 서랍 — 담은 상품은 브라우저(localStorage)에 저장됩니다.
+       ===================================================================== -->
+  <aside class="cart" id="cart" aria-label="장바구니" hidden>
+    <div class="cart__dim" data-cart-close></div>
+    <div class="cart__panel">
+      <div class="cart__head">
+        <h3>My Ritual Bag</h3>
+        <button type="button" class="modal__close" data-cart-close aria-label="장바구니 닫기">&times;</button>
+      </div>
+      <ul class="cart__list" id="cartList"></ul>
+      <p class="cart__empty" id="cartEmpty">아직 담은 비누가 없어요.</p>
+      <div class="cart__foot">
+        <p>합계 <strong id="cartTotal">₩0</strong></p>
+        <button type="button" class="btn-primary" id="checkout">주문하기</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- 알림 메시지(토스트) -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- =====================================================================
+       [SCRIPT] 라이브러리는 js/lib 폴더에 포함되어 있어 인터넷 CDN 없이도 동작합니다.
+       - gsap.min.js / ScrollTrigger.min.js : 스크롤 애니메이션 (GSAP 3)
+       - lenis.min.js : 부드러운 스크롤 (선택 사항, 지워도 사이트는 동작함)
+       - main.js : 이 사이트의 모든 기능 코드
+       ===================================================================== -->
+  <script src="js/lib/gsap.min.js"></script>
+  <script src="js/lib/ScrollTrigger.min.js"></script>
+  <script src="js/lib/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
